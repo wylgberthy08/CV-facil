@@ -1,65 +1,95 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { FileText, Download, Palette, Sparkles } from "lucide-react";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "CV Fácil - Crie Seu Currículo Online em Manaus Amazonas",
+    description:
+      "Crie currículos profissionais online com templates prontos. Plataforma para moradores de Manaus, São Sebastião do Uatumã, Urucará e todo o Amazonas. Edição simples e exportação em PDF.",
+    alternates: { canonical: "https://cvfacil.com.br" },
+  };
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="flex min-h-screen flex-col">
+      <header className="flex items-center justify-between border-b px-6 py-4">
+        <h1 className="text-xl font-bold text-blue-600">CV Fácil</h1>
+        <Link
+          href="/editor"
+          className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+        >
+          Criar Currículo
+        </Link>
+      </header>
+
+      <main className="flex flex-1 flex-col items-center justify-center px-6 py-16 text-center">
+        <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 dark:bg-blue-900">
+          <FileText className="h-8 w-8 text-blue-600 dark:text-blue-300" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <h2 className="mb-4 max-w-2xl text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
+          Crie currículos profissionais em minutos
+        </h2>
+
+        <p className="mb-10 max-w-lg text-lg text-zinc-600 dark:text-zinc-400">
+          Editor simples e intuitivo. Escolha entre templates prontos, edite seus dados e exporte em PDF.
+        </p>
+
+        <div className="mb-12 grid gap-6 sm:grid-cols-3">
+          <div className="rounded-xl border bg-white p-6 text-left shadow-sm dark:border-zinc-700 dark:bg-zinc-800">
+            <Palette className="mb-3 h-6 w-6 text-blue-600" />
+            <h3 className="mb-1 font-semibold text-zinc-900 dark:text-zinc-100">Templates</h3>
+            <p className="text-sm text-zinc-500">Layouts prontos para diferentes profissões e níveis</p>
+          </div>
+          <div className="rounded-xl border bg-white p-6 text-left shadow-sm dark:border-zinc-700 dark:bg-zinc-800">
+            <Sparkles className="mb-3 h-6 w-6 text-blue-600" />
+            <h3 className="mb-1 font-semibold text-zinc-900 dark:text-zinc-100">Live Preview</h3>
+            <p className="text-sm text-zinc-500">Veja as alterações em tempo real enquanto edita</p>
+          </div>
+          <div className="rounded-xl border bg-white p-6 text-left shadow-sm dark:border-zinc-700 dark:bg-zinc-800">
+            <Download className="mb-3 h-6 w-6 text-blue-600" />
+            <h3 className="mb-1 font-semibold text-zinc-900 dark:text-zinc-100">Exportar PDF</h3>
+            <p className="text-sm text-zinc-500">Baixe seu currículo em PDF pronto para imprimir</p>
+          </div>
         </div>
+
+        <section className="mb-12 w-full max-w-4xl">
+          <h3 className="mb-6 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+            Modelos disponíveis
+          </h3>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[
+              { name: "Clássico", desc: "Duas colunas com sidebar", color: "from-blue-900 to-blue-800" },
+              { name: "Moderno", desc: "Header colorido e conteúdo clean", color: "from-teal-600 to-blue-600" },
+              { name: "Simples", desc: "Coluna única, ideal para impressão", color: "from-zinc-600 to-zinc-500" },
+            ].map((tpl) => (
+              <div
+                key={tpl.name}
+                className="overflow-hidden rounded-xl border bg-white shadow-sm dark:border-zinc-700 dark:bg-zinc-800"
+              >
+                <div className={`h-24 bg-gradient-to-br ${tpl.color}`} />
+                <div className="p-4 text-left">
+                  <h4 className="font-semibold text-zinc-900 dark:text-zinc-100">{tpl.name}</h4>
+                  <p className="text-sm text-zinc-500">{tpl.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <Link
+          href="/editor"
+          className="rounded-lg bg-blue-600 px-8 py-3 text-base font-medium text-white transition-colors hover:bg-blue-700"
+        >
+          Começar agora
+        </Link>
       </main>
+
+      <footer className="border-t px-6 py-4 text-center text-sm text-zinc-500">
+        CV Fácil — Gerador de Currículos
+      </footer>
     </div>
   );
 }

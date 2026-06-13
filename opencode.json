@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "abacatepay": {
+      "type": "remote",
+      "url": "https://mcp.abacatepay.com/mcp",
+      "headers": {
+        "Authorization": "Bearer abc_dev_4agEHTrBuh3ReLsnzWGpFsd2"
+      },
+      "enabled": true
+    }
+  }
+}
